@@ -23,14 +23,14 @@ class Utils {
 
   static int localToUtc(int localHour) {
     final now = DateTime.now();
-    final localTime = DateTime(now.year, now.month, now.day, localHour);
+    final localTime = DateTime(now.year, now.month, now.day, localHour, 0); // Create full UTC DateTime inc mins
     final utcTime = localTime.toUtc();
     return utcTime.hour;
   }
 
   static int utcToLocal(int utcHour) {
     final now = DateTime.now();
-    final utcTime = DateTime.utc(now.year, now.month, now.day, utcHour);
+    final utcTime = DateTime.utc(now.year, now.month, now.day, utcHour, 0); // Create full UTC DateTime inc mins
     final localTime = utcTime.toLocal();
     return localTime.hour;
   }
